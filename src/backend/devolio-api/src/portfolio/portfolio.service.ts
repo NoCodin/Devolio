@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { identity } from 'rxjs';
 import { developerType } from './developer-type.enum';
 import { CreatePortfolioBodyDto } from './dto/create-portfolio.dto';
+import { UpdatePortfolioBodyDto } from './dto/update-portfolio.dto';
 import { Portfolio } from './portfolio.interface';
 
 @Injectable()
@@ -27,26 +28,31 @@ export class PortfolioService {
   findAll() {
     return this.portfolios;
   }
+
   findById(portfolioId: number) {
     return this.portfolios.find((id) => id.id === portfolioId);
   }
+
   createPortfolio(createPortfolio: CreatePortfolioBodyDto) {
-    // newPortfolio: Portfolio = {
-    //   developerName: createPortfolio.developerName,
-    //   bio: createPortfolio.bio,
-    //   developerType: createPortfolio.developerType,
-    //   workExperiences: createPortfolio.workExperiences,
-    //   knownTechnologies: createPortfolio.knownTechnologies,
-    // };
-    //tu nie wiem jak zwrocic to newPortfolio
-    return 'created';
-    // this.portfolios.push(newPortfolio);
-    // return newPortfolio;
+    const newPortfolio = this.portfolioDtoToPortfolio(createPortfolio);
+    this.portfolios.push(newPortfolio);
+    return newPortfolio;
   }
-  deletePortfolio(portfolioId: number) {
-    return 'ok';
-  }
-  updatePortfolio(portfolioId: number, body: CreatePortfolioBodyDto) {
+
+  deletePortfolio(portfolioId: number) {}
+
+  updatePortfolio(portfolioId: number, body: UpdatePortfolioBodyDto) {
     return this.portfolios.find((id) => id.id === portfolioId);
+  }
+
+  portfolioDtoToPortfolio(createPortfolio: CreatePortfolioBodyDto): Portfolio {
+    const newPortfolio: Portfolio = {
+      developerName: createPortfolio.developerName,
+      bio: createPortfolio.bio,
+      developerType: createPortfolio.developerType,
+      workExperiences: createPortfolio.workExperiences,
+      knownTechnologies: createPortfolio.knownTechnologies,
+    };
+    return newPortfolio;
   }
 }
