@@ -28,8 +28,7 @@ export class PortfolioController {
 
   @Post()
   createPortfolio(@Body() body: CreatePortfolioBodyDto) {
-    return;
-    this.portfiolioService.createPortfolio(body);
+    return this.portfiolioService.createPortfolio(body);
   }
 
   @Delete(':id')
