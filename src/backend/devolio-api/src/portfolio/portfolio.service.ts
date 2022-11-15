@@ -10,7 +10,7 @@ export class PortfolioService {
   potfolioUno: Portfolio = {
     id: 1,
     developerName: 'Mariusz',
-    bio: 'jakie bio?',
+    bio: 'jakie bio kur?',
     developerType: developerType.BACKEND,
     workExperiences: ['raz', 'dwa', 'trzy'],
     knownTechnologies: ['java', 'python'],
