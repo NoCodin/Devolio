@@ -11,7 +11,7 @@ export class PortfolioService {
   private apiUrl = 'http://localhost:3000/';
 
   getPortfolios(): Observable<Portfolio[]> {
-    return this.http.get<Portfolio[]>(this.apiUrl);
+    return this.http.get<Portfolio[]>(`${this.apiUrl}portfolio`);
   }
 
   deletePortfolio(portfolio: Portfolio): Observable<Portfolio> {
