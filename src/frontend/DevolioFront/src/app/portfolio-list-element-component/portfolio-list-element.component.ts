@@ -8,7 +8,7 @@ import { Portfolio } from '../portfolio/dtos/create-portfolio.dto';
 })
 export class PortfolioListElementComponentComponent implements OnInit {
   @Input()
-  portfolio: Portfolio[] = [];
+  portfolio!: Portfolio;
   constructor() {}
 
   ngOnInit(): void {}
