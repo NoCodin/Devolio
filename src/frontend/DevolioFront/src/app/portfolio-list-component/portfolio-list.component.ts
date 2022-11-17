@@ -4,10 +4,10 @@ import { PortfolioService } from '../portfolio/portfolio.service';
 
 @Component({
   selector: 'app-portfolio-list-component',
-  templateUrl: './portfolio-list-component.component.html',
-  styleUrls: ['./portfolio-list-component.component.scss'],
+  templateUrl: './portfolio-list.component.html',
+  styleUrls: ['./portfolio-list.component.scss'],
 })
-export class PortfolioListComponentComponent implements OnInit {
+export class PortfolioListComponent implements OnInit {
   portfoliosList: Portfolio[] = [];
   constructor(private portfolioService: PortfolioService) {}
   ngOnInit(): void {

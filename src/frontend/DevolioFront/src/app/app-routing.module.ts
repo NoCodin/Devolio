@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PortfolioListComponentComponent } from './portfolio-list-component/portfolio-list-component.component';
+import { PortfolioListComponent } from './portfolio-list-component/portfolio-list.component';
 
 const routes: Routes = [
-  { path: 'portfolios', component: PortfolioListComponentComponent },
+  { path: 'portfolios', component: PortfolioListComponent },
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PortfolioListElementComponentComponent } from './portfolio-list-element-component.component';
+import { PortfolioListElementComponentComponent } from './portfolio-list-element.component';
 
 describe('PortfolioListElementComponentComponent', () => {
   let component: PortfolioListElementComponentComponent;
@@ -8,9 +8,8 @@ describe('PortfolioListElementComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PortfolioListElementComponentComponent ]
-    })
-    .compileComponents();
+      declarations: [PortfolioListElementComponentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PortfolioListElementComponentComponent);
     component = fixture.componentInstance;
