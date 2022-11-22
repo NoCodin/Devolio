@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Portfolio } from '../portfolio/dtos/create-portfolio.dto';
-import { PortfolioService } from '../portfolio/portfolio.service';
+import { Portfolio } from '../../models/create-portfolio.dto';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-portfolio-list-component',
@@ -14,6 +14,5 @@ export class PortfolioListComponent implements OnInit {
     this.portfolioService
       .getPortfolios()
       .subscribe((portfolio) => (this.portfoliosList = portfolio));
-    console.log(this.portfoliosList);
   }
 }

@@ -4,18 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-import { PortfolioListElementComponentComponent } from './portfolio-list-element-component/portfolio-list-element.component';
-import { PortfolioListComponent } from './portfolio-list-component/portfolio-list.component';
+import { PortfolioModule } from './portfolio/portfolio.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PortfolioComponent,
-    PortfolioListComponent,
-    PortfolioListElementComponentComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, PortfolioModule],
   providers: [],
   bootstrap: [AppComponent],
 })

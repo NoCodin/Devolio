@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PortfolioListComponent } from './portfolio-list-component/portfolio-list.component';
 
-const routes: Routes = [
-  { path: 'portfolio', component: PortfolioListComponent },
-];
+const routes: Routes = [{}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
