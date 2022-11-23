@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PortfolioModule } from './portfolio/portfolio.module';
+import { PortfolioRoutingModule } from './portfolio/portfolio-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
