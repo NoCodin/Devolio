@@ -14,6 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
     PortfolioListElementComponent,
     PortfolioPreviewComponent,
   ],
-  imports: [CommonModule, PortfolioRoutingModule, HttpClientModule],
+  imports: [CommonModule, PortfolioRoutingModule],
 })
 export class PortfolioModule {}

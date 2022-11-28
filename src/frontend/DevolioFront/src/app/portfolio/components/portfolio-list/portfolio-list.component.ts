@@ -9,7 +9,9 @@ import { PortfolioService } from '../../services/portfolio.service';
 })
 export class PortfolioListComponent implements OnInit {
   portfoliosList: Portfolio[] = [];
+
   constructor(private portfolioService: PortfolioService) {}
+
   ngOnInit(): void {
     this.portfolioService
       .getPortfolios()
