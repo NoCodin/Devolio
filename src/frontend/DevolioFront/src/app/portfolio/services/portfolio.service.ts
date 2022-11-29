@@ -14,7 +14,7 @@ export class PortfolioService {
     return this.http.get<Portfolio[]>(`${this.apiUrl}`);
   }
 
-  getPortfolioById(id: number): Observable<Portfolio> {
+  getPortfolioById(id: any): Observable<Portfolio> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Portfolio>(url);
   }

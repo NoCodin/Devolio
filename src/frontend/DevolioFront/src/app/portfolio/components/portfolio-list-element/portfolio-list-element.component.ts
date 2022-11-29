@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Portfolio } from '../../models/create-portfolio.dto';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-portfolio-list-element-component',

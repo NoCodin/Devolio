@@ -1,4 +1,6 @@
 <div>
   <p>{{ portfolio.developerName }}</p>
   <p>{{ portfolio.developerType }}</p>
+  <button [routerLink]="['/portfolio', portfolio.id]">Wyświetl portfolio</button>
 </div>
+
