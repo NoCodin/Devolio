@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  devolio-backend:
+    container_name: DevolioBackend
+    build:
+      context: ..\src\backend\devolio-api
+      dockerfile: Dockerfile
+    ports:
+      - 8000:3000
+    networks:
+      - net
+    depends_on:
+      - db
+    environment:
+      - DbConnectionString=postgres://postgres:postgres@localhost:5432/devolio
+  devolio-frontend:
+    container_name: DevolioFrontend
+    build: 
+      context: ..\src\frontend\DevolioFront
+      dockerfile: Dockerfile
+    ports: 
+      - 8010:80
+    networks:
+      - net
+    depends_on:
+      - devolio-backend
+  db:
+    image: postgres:15-alpine
+    container_name: DevolioDb
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    networks:
+      - net
+    volumes: 
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
+    driver: local
+networks:
+  net:
