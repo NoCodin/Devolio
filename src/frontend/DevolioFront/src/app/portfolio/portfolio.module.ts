@@ -5,7 +5,7 @@ import { PortfolioListComponent } from './components/portfolio-list/portfolio-li
 import { PortfolioListElementComponent } from './components/portfolio-list-element/portfolio-list-element.component';
 import { PortfolioPreviewComponent } from './components/portfolio-preview/portfolio-preview.component';
 import { PortfolioRoutingModule } from './portfolio-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
     PortfolioListComponent,
     PortfolioListElementComponent,
     PortfolioPreviewComponent,
+    PortfolioEditComponent,
   ],
   imports: [CommonModule, PortfolioRoutingModule],
 })

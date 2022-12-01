@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
 import { PortfolioListComponent } from './components/portfolio-list/portfolio-list.component';
 import { PortfolioPreviewComponent } from './components/portfolio-preview/portfolio-preview.component';
 const routes: Routes = [
   { path: '', component: PortfolioListComponent },
-  { path: ':id', component: PortfolioPreviewComponent },
+  {
+    path: ':id',
+    component: PortfolioPreviewComponent,
+  },
+  {
+    path: ':id/edit',
+    // pathMatch: 'full',
+    component: PortfolioEditComponent,
+  },
 ];
 
 @NgModule({

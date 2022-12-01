@@ -5,4 +5,5 @@
     <p>{{ portfolio.knownTechnologies}}</p>
     <p>{{ portfolio.bio }}</p>
     <p>{{ portfolio.workExperiences }}</p>
+    <button [routerLink]="['/portfolio', portfolio.id,'edit']">Edytuj</button>
 </div>
