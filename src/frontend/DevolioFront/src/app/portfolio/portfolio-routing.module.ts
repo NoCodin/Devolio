@@ -5,13 +5,14 @@ import { PortfolioListComponent } from './components/portfolio-list/portfolio-li
 import { PortfolioPreviewComponent } from './components/portfolio-preview/portfolio-preview.component';
 const routes: Routes = [
   { path: '', component: PortfolioListComponent },
+  { path: 'add', component: PortfolioEditComponent },
+
   {
     path: ':id',
     component: PortfolioPreviewComponent,
   },
   {
     path: ':id/edit',
-    // pathMatch: 'full',
     component: PortfolioEditComponent,
   },
 ];
