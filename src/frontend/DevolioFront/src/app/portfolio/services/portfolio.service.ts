@@ -24,7 +24,7 @@ export class PortfolioService {
     return this.http.delete<Portfolio>(url);
   }
 
-  updatePortfolio(portfolio: Portfolio): Observable<Portfolio> {
+  updatePortfolio(id: any, portfolio: Portfolio): Observable<Portfolio> {
     const url = `${this.apiUrl}/${portfolio.id}`;
     return this.http.put<Portfolio>(url, portfolio);
   }
