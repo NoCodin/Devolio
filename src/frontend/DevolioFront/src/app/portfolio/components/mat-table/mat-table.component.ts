@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Portfolio } from '../../models/create-portfolio.dto';
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
 }
-
 const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -18,14 +18,21 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-mat-table',
+  templateUrl: './mat-table.component.html',
+  styleUrls: ['./mat-table.component.scss'],
 })
-export class AppComponent {
-  title = 'DevolioFront';
+export class MatTableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-  myDataArray = ELEMENT_DATA;
+  // @Input()
+  // portfoliosList!: Portfolio[];
+  // dataSource: any;
+
+  constructor() {}
+  ngOnInit(): void {
+    // this.dataSource = this.portfoliosList;
+  }
 }

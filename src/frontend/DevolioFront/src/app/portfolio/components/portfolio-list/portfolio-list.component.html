@@ -1,7 +1,10 @@
 <h1>Portfolio list</h1>
 <button [routerLink]="['/portfolio/add']">Dodaj portfolio</button>
+<!-- <app-mat-table [portfoliosList]="portfoliosList"></app-mat-table> -->
 <div *ngFor="let portfolio of portfoliosList">
-  <app-portfolio-list-element-component
+  <!-- <app-mat-table [portfolio]="portfolio"></app-mat-table> -->
+
+  <!-- <app-portfolio-list-element-component
     [portfolio]="portfolio"
-  ></app-portfolio-list-element-component>
+  ></app-portfolio-list-element-component> -->
 </div>

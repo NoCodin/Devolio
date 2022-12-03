@@ -6,9 +6,11 @@ import { PortfolioPreviewComponent } from './components/portfolio-preview/portfo
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableComponent } from './components/mat-table/mat-table.component';
 
 @NgModule({
   declarations: [
+    MatTableComponent,
     PortfolioListComponent,
     PortfolioListElementComponent,
     PortfolioPreviewComponent,
