@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Portfolio } from '../../models/create-portfolio.dto';
+import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-mat-table',
@@ -10,18 +12,41 @@ export class MatTableComponent implements OnInit {
   @Input()
   dataSource!: Portfolio[];
 
-  //todo
-  // displayedColumns: string[] = [
-  //   'id',
-  //   'developerName',
-  //   'bio',
-  //   'developerType',
-  //   'workExperiences',
-  //   'knownTechnologies',
-  //   'preview',
-  // ];
-  displayedColumns: string[] = ['developerName', 'developerType', 'preview'];
+  constructor(
+    private route: ActivatedRoute,
+    private portfolioService: PortfolioService
+  ) {}
 
-  constructor() {}
-  ngOnInit(): void {}
+  columns!: string[];
+  isFullmode = false;
+  id!: string;
+  displayedColumns!: string[];
+
+  portfolioPreviewColumns: string[] = [
+    'developerName',
+    'bio',
+    'developerType',
+    'workExperiences',
+    'knownTechnologies',
+  ];
+  portfolioListColumn: string[] = ['developerName', 'developerType', 'buttons'];
+  //todo maybe filter and hide columns
+  // columnDefinitions = [{ def: 'id', hide: this.displayedColumns }];
+  // getDisplayedColumns() {
+  //   this.columns = this.columnDefinitions
+  //     .filter((cd) => !cd.hide)
+  //     .map((cd) => cd.def);
+  // }
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    if ((this.isFullmode = !this.id)) {
+      this.displayedColumns = this.portfolioListColumn;
+    } else {
+      this.displayedColumns = this.portfolioPreviewColumns;
+      this.portfolioService
+        .getPortfolioById(this.id)
+        .subscribe((portfolio) => this.dataSource.push(portfolio));
+    }
+  }
 }
