@@ -10,6 +10,7 @@ export class PortfolioListElementComponent implements OnInit {
   @Input()
   portfolio!: Portfolio;
   constructor() {}
+  fullPortfolioPreview = false;
 
   ngOnInit(): void {}
 }
