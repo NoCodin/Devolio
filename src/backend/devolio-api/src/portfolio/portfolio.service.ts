@@ -12,16 +12,16 @@ export class PortfolioService {
     developerName: 'Mariusz',
     bio: 'jakie bio?',
     developerType: developerType.BACKEND,
-    workExperiences: ['raz', 'dwa', 'trzy'],
-    knownTechnologies: ['java', 'python'],
+    workExperiences: ['raz', ' dwa', ' trzy'],
+    knownTechnologies: ['java', ' python'],
   };
   potfolioDuo: Portfolio = {
     id: 2,
     developerName: 'Miroslaw',
     bio: 'łymen',
     developerType: developerType.FULLSTACK,
-    workExperiences: ['razraz', 'dwadwa', 'trzyrzs'],
-    knownTechnologies: ['javascript', 'html'],
+    workExperiences: ['raz', ' dwa', ' trzy'],
+    knownTechnologies: ['javascript', ' html'],
   };
   portfolios = [this.potfolioUno, this.potfolioDuo];
 

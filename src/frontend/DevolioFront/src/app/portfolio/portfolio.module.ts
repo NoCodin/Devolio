@@ -8,20 +8,22 @@ import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-ed
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableComponent } from './components/mat-table/mat-table.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
-    MatTableComponent,
     PortfolioListComponent,
     PortfolioListElementComponent,
     PortfolioPreviewComponent,
     PortfolioEditComponent,
+    MatTableComponent,
   ],
   imports: [
     CommonModule,
     PortfolioRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSortModule,
     MatTableModule,
   ],
 })
