@@ -7,6 +7,7 @@ import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableComponent } from './components/mat-table/mat-table.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatTableComponent } from './components/mat-table/mat-table.component';
     PortfolioRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
   ],
 })
 export class PortfolioModule {}

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PortfolioModule } from './portfolio/portfolio.module';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { MatSortModule } from '@angular/material/sort';
     PortfolioModule,
     MatSortModule,
     MatTableModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
