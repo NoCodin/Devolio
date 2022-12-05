@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Portfolio } from '../../models/update-portfolio.dto';
 import { PortfolioService } from '../../services/portfolio.service';
@@ -16,6 +21,8 @@ export class PortfolioEditComponent implements OnInit {
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  selectFormControl = new FormControl('', Validators.required);
+
   constructor(
     private route: ActivatedRoute,
     private portfolioService: PortfolioService,
