@@ -12,6 +12,7 @@ export class PortfolioListComponent implements OnInit {
 
   constructor(private portfolioService: PortfolioService) {}
 
+  displayedColumns: string[] = ['developerName', 'developerType', 'editView'];
   ngOnInit(): void {
     this.portfolioService
       .getPortfolios()

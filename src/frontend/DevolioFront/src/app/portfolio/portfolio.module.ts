@@ -5,16 +5,15 @@ import { PortfolioPreviewComponent } from './components/portfolio-preview/portfo
 import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTableComponent } from './components/mat-table/mat-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     PortfolioListComponent,
     PortfolioPreviewComponent,
     PortfolioEditComponent,
-    MatTableComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatSortModule,
     MatTableModule,
+    MatButtonModule,
   ],
 })
 export class PortfolioModule {}
