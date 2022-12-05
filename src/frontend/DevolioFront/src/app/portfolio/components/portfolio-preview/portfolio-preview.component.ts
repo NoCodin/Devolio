@@ -9,7 +9,7 @@ import { PortfolioService } from '../../services/portfolio.service';
   styleUrls: ['./portfolio-preview.component.scss'],
 })
 export class PortfolioPreviewComponent implements OnInit {
-  portfoliosList!: Portfolio[];
+  portfoliosList: Portfolio[] = [];
   constructor(
     private route: ActivatedRoute,
     private portfolioService: PortfolioService
@@ -19,6 +19,6 @@ export class PortfolioPreviewComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.portfolioService
       .getPortfolioById(id)
-      .subscribe((portfolio) => this.portfoliosList.push(portfolio));
+      .subscribe((portfolio) => (this.portfoliosList = [portfolio]));
   }
 }
