@@ -1,28 +1,28 @@
-<h2>    
-    <p>{{ portfolio.developerName }}</p>
+<h2>
+  <p>{{ portfolio.developerName }}</p>
 </h2>
-<div class="container">  
+<div class="container">
+  <div class="field">
+    <label class="field-label">Typ</label>
+    <p class="field-value">{{ portfolio.developerType }}</p>
+  </div>
 
-    <div class="field">
-        <label class="field-label">Typ:</label>
-        <p class="field-value">{{ portfolio.developerType }}</p>
-    </div>
-    
-    <div class="field">
-        <label class="field-label">Technologie:</label>
-        <p class="field-value">{{ portfolio.knownTechnologies}}</p>
-    </div>
-    
-    <div class="field">
-        <label class="field-label">Bio:</label>
-        <p class="field-value">{{ portfolio.bio}}</p>
-    </div>
+  <div class="field">
+    <label class="field-label">Technologie</label>
+    <p class="field-value">{{ portfolio.knownTechnologies }}</p>
+  </div>
 
-    <div class="field">
-        <label class="field-label">Doświadczenie:</label>
-        <p class="field-value">{{ portfolio.knownTechnologies}}</p>
-    </div>
+  <div class="field">
+    <label class="field-label">Bio</label>
+    <p class="field-value">{{ portfolio.bio }}</p>
+  </div>
 
-    <button mat-raised-button [routerLink]="['/portfolio', portfolio.id,'edit']">Edytuj</button>
+  <div class="field">
+    <label class="field-label">Doświadczenie</label>
+    <p class="field-value">{{ portfolio.knownTechnologies }}</p>
+  </div>
+
+  <button mat-raised-button [routerLink]="['/portfolio', portfolio.id, 'edit']">
+    Edytuj
+  </button>
 </div>
-
