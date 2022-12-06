@@ -17,7 +17,7 @@ import { first } from 'rxjs/operators';
 })
 export class PortfolioEditComponent implements OnInit {
   form!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
@@ -69,30 +69,24 @@ export class PortfolioEditComponent implements OnInit {
   }
 
   private createPortofolio() {
-    this.portfolioService
-      .addPortfolio(this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../'], { relativeTo: this.route });
-        },
-        error: () => {
-          this.loading = false;
-        },
-      });
+    this.portfolioService.addPortfolio(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 
   private updatePortfolio() {
-    this.portfolioService
-      .updatePortfolio(this.id, this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../'], { relativeTo: this.route });
-        },
-        error: () => {
-          this.loading = false;
-        },
-      });
+    this.portfolioService.updatePortfolio(this.id, this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 }

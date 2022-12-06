@@ -18,7 +18,7 @@ export class PortfolioPreviewComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.portfolioService
-      .getPortfolioById(id)
+      .getPortfolioById(Number(id))
       .subscribe((portfolio) => (this.portfolio = portfolio));
   }
 }
