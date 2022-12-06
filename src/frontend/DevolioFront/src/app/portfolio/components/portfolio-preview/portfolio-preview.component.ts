@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Portfolio } from '../../models/create-portfolio.dto';
 import { PortfolioService } from '../../services/portfolio.service';
 
@@ -9,12 +10,15 @@ import { PortfolioService } from '../../services/portfolio.service';
 })
 export class PortfolioPreviewComponent implements OnInit {
   portfolio!: Portfolio;
-  constructor(private portfolioService: PortfolioService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private portfolioService: PortfolioService
+  ) {}
 
-  getPortfolioById(portfolioId: number) {
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
     this.portfolioService
-      .getPortfolioById(portfolioId)
+      .getPortfolioById(id)
       .subscribe((portfolio) => (this.portfolio = portfolio));
   }
-  ngOnInit(): void {}
 }

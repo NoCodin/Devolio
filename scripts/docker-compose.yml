@@ -3,7 +3,7 @@ services:
   devolio-backend:
     container_name: DevolioBackend
     build:
-      context: ..\src\backend\devolio-api
+      context: ../src/backend/devolio-api
       dockerfile: Dockerfile
     ports:
       - 8000:3000
@@ -16,7 +16,7 @@ services:
   devolio-frontend:
     container_name: DevolioFrontend
     build: 
-      context: ..\src\frontend\DevolioFront
+      context: ../src/frontend/DevolioFront
       dockerfile: Dockerfile
     ports: 
       - 8010:80
@@ -29,7 +29,7 @@ services:
     container_name: DevolioDb
     restart: always
     environment:
-      - POSTGRES_USER=postgres
+      - POSTGRES_USER=postgr
       - POSTGRES_PASSWORD=postgres
     ports:
       - 5432:5432
