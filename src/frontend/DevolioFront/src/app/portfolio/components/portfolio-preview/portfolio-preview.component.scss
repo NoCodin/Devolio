@@ -1,9 +1,17 @@
-.field{
-    display: flex;
-    flex-direction: row;
-    flex:1; 
-    min-width: 400px;    
-}
-.field-label {
-    width: 35%;
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .field {
+    flex: 50%;
+    flex-direction: column;
+    width: 50%;
+    margin: 8px 0;
+
+    .field-label {
+      font-weight: 500;
+      font-size: 1.2em;
+    }
+  }
 }
