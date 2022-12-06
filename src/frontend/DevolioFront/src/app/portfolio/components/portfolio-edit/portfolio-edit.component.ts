@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Portfolio } from '../../models/update-portfolio.dto';
 import { PortfolioService } from '../../services/portfolio.service';
@@ -12,10 +17,12 @@ import { first } from 'rxjs/operators';
 })
 export class PortfolioEditComponent implements OnInit {
   form!: FormGroup;
-  id!: string;
+  id!: number;
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  selectFormControl = new FormControl('', Validators.required);
+
   constructor(
     private route: ActivatedRoute,
     private portfolioService: PortfolioService,
@@ -62,30 +69,24 @@ export class PortfolioEditComponent implements OnInit {
   }
 
   private createPortofolio() {
-    this.portfolioService
-      .addPortfolio(this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../'], { relativeTo: this.route });
-        },
-        error: () => {
-          this.loading = false;
-        },
-      });
+    this.portfolioService.addPortfolio(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 
   private updatePortfolio() {
-    this.portfolioService
-      .updatePortfolio(this.id, this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../'], { relativeTo: this.route });
-        },
-        error: () => {
-          this.loading = false;
-        },
-      });
+    this.portfolioService.updatePortfolio(this.id, this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      },
+      error: () => {
+        this.loading = false;
+      },
+    });
   }
 }

@@ -8,13 +8,13 @@ import { Portfolio } from '../models/create-portfolio.dto';
 })
 export class PortfolioService {
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:8000/portfolio';
+  private apiUrl = 'http://localhost:3000/portfolio';
 
   getPortfolios(): Observable<Portfolio[]> {
     return this.http.get<Portfolio[]>(`${this.apiUrl}`);
   }
 
-  getPortfolioById(id: any): Observable<Portfolio> {
+  getPortfolioById(id: number): Observable<Portfolio> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Portfolio>(url);
   }
@@ -24,7 +24,7 @@ export class PortfolioService {
     return this.http.delete<Portfolio>(url);
   }
 
-  updatePortfolio(id: any, portfolio: Portfolio): Observable<Portfolio> {
+  updatePortfolio(id: number, portfolio: Portfolio): Observable<Portfolio> {
     const url = `${this.apiUrl}/${portfolio.id}`;
     return this.http.put<Portfolio>(url, portfolio);
   }
