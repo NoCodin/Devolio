@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 const MATERIAL_MODULES = [
   FormsModule,
@@ -17,6 +18,7 @@ const MATERIAL_MODULES = [
   MatFormFieldModule,
   MatInputModule,
   MatOptionModule,
+  MatSelectModule
 ];
 @NgModule({
   declarations: [],
