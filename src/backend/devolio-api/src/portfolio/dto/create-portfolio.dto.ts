@@ -4,9 +4,9 @@ import { developerType } from '../developer-type.enum';
 export class CreatePortfolioBodyDto {
   @IsString()
   @IsNotEmpty()
-  readonly developerName: string;
-  readonly bio: string;
-  readonly developerType: developerType;
-  readonly workExperiences: string[];
-  readonly knownTechnologies: string[];
+  developerName: string;
+  bio: string;
+  developerType: developerType;
+  workExperiences: string[];
+  knownTechnologies: string[];
 }
