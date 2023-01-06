@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Portfolio } from '../../models/update-portfolio.dto';
 import { PortfolioService } from '../../services/portfolio.service';
 import { first } from 'rxjs/operators';
-import { developerType } from '../../models/developer-type.enum';
 
 @Component({
   selector: 'app-portfolio-edit',
@@ -23,11 +22,6 @@ export class PortfolioEditComponent implements OnInit {
   loading = false;
   submitted = false;
   selectFormControl = new FormControl('', Validators.required);
-  devTypeList: developerType[] = [
-    developerType.BACKEND,
-    developerType.FRONTEND,
-    developerType.FULLSTACK,
-  ];
 
   constructor(
     private route: ActivatedRoute,
@@ -77,7 +71,6 @@ export class PortfolioEditComponent implements OnInit {
   private createPortofolio() {
     this.portfolioService.addPortfolio(this.form.value).subscribe({
       next: () => {
-        console.log(this.form.value);
         this.router.navigate(['../'], { relativeTo: this.route });
       },
       error: () => {
