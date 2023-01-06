@@ -39,7 +39,7 @@ export class PortfolioController {
   @Put(':id')
   updatePortfolio(
     @Body() updatePortfolio: UpdatePortfolioBodyDto,
-    @Param('id') id,
+    @Param('id') id: number,
   ) {
     return this.portfiolioService.updatePortfolio(id, updatePortfolio);
   }
