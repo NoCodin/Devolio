@@ -1,58 +1,32 @@
 import { Injectable } from '@nestjs/common';
-import { identity } from 'rxjs';
-import { developerType } from './developer-type.enum';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreatePortfolioBodyDto } from './dto/create-portfolio.dto';
 import { UpdatePortfolioBodyDto } from './dto/update-portfolio.dto';
-import { Portfolio } from './portfolio.interface';
+import { Portfolio } from './portfolio.entity';
 
 @Injectable()
 export class PortfolioService {
-  potfolioUno: Portfolio = {
-    id: 1,
-    developerName: 'Mariusz',
-    bio: 'jakie bio?',
-    developerType: developerType.BACKEND,
-    workExperiences: ['raz', ' dwa', ' trzy'],
-    knownTechnologies: ['java', ' python'],
-  };
-  potfolioDuo: Portfolio = {
-    id: 2,
-    developerName: 'Miroslaw',
-    bio: 'łymen',
-    developerType: developerType.FULLSTACK,
-    workExperiences: ['raz', ' dwa', ' trzy'],
-    knownTechnologies: ['javascript', ' html'],
-  };
-  portfolios = [this.potfolioUno, this.potfolioDuo];
+  @InjectRepository(Portfolio)
+  private portfolioRepository: Repository<Portfolio>;
 
-  findAll() {
-    return this.portfolios;
+  findAll(): Promise<Portfolio[]> {
+    return this.portfolioRepository.find();
   }
 
-  findById(portfolioId: number) {
-    return this.portfolios.find((id) => id.id === portfolioId);
+  public findById(id: number): Promise<Portfolio> {
+    return this.portfolioRepository.findOne({ where: { id } });
   }
 
   createPortfolio(createPortfolio: CreatePortfolioBodyDto) {
-    const newPortfolio = this.portfolioDtoToPortfolio(createPortfolio);
-    this.portfolios.push(newPortfolio);
-    return newPortfolio;
+    return this.portfolioRepository.save(createPortfolio);
   }
 
-  deletePortfolio(portfolioId: number) {}
+  deletePortfolio(portfolioId: number) {
+    this.portfolioRepository.delete(portfolioId);
+  }
 
   updatePortfolio(portfolioId: number, body: UpdatePortfolioBodyDto) {
-    return this.portfolios.find((id) => id.id === portfolioId);
-  }
-
-  portfolioDtoToPortfolio(createPortfolio: CreatePortfolioBodyDto): Portfolio {
-    const newPortfolio: Portfolio = {
-      developerName: createPortfolio.developerName,
-      bio: createPortfolio.bio,
-      developerType: createPortfolio.developerType,
-      workExperiences: createPortfolio.workExperiences,
-      knownTechnologies: createPortfolio.knownTechnologies,
-    };
-    return newPortfolio;
+    return this.portfolioRepository.update(portfolioId, body);
   }
 }
