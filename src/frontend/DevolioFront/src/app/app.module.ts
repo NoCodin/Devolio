@@ -4,17 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PortfolioModule } from './portfolio/portfolio.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PortfolioModule } from './portfolio/portfolio.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PortfolioModule,
+    BrowserModule,
     BrowserAnimationsModule,
+    SharedModule,
+    PortfolioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
