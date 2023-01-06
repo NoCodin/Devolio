@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PortfolioEditComponent } from './portfolio/components/portfolio-edit/portfolio-edit.component';
-import { PortfolioListComponent } from './portfolio/components/portfolio-list/portfolio-list.component';
-import { PortfolioPreviewComponent } from './portfolio/components/portfolio-preview/portfolio-preview.component';
+import { PortfolioEditComponent } from './components/portfolio-edit/portfolio-edit.component';
+import { PortfolioListComponent } from './components/portfolio-list/portfolio-list.component';
+import { PortfolioPreviewComponent } from './components/portfolio-preview/portfolio-preview.component';
+
 const routes: Routes = [
   { path: '', component: PortfolioListComponent },
   { path: 'add', component: PortfolioEditComponent },
