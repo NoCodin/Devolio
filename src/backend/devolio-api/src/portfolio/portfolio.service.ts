@@ -19,9 +19,7 @@ export class PortfolioService {
   }
 
   createPortfolio(createPortfolio: CreatePortfolioBodyDto) {
-    const newPortfolio = this.portfolioDtoToPortfolio(createPortfolio);
-    this.portfolioRepository.save(newPortfolio);
-    return newPortfolio;
+    return this.portfolioRepository.save(createPortfolio);
   }
 
   deletePortfolio(portfolioId: number) {
@@ -29,20 +27,6 @@ export class PortfolioService {
   }
 
   updatePortfolio(portfolioId: number, body: UpdatePortfolioBodyDto) {
-    return this.portfolioRepository.update(
-      portfolioId,
-      this.portfolioDtoToPortfolio(body),
-    );
-  }
-
-  portfolioDtoToPortfolio(createPortfolio: UpdatePortfolioBodyDto): Portfolio {
-    const newPortfolio: Portfolio = {
-      developerName: createPortfolio.developerName,
-      bio: createPortfolio.bio,
-      developerType: createPortfolio.developerType,
-      workExperiences: createPortfolio.workExperiences,
-      knownTechnologies: createPortfolio.knownTechnologies,
-    };
-    return newPortfolio;
+    return this.portfolioRepository.update(portfolioId, body);
   }
 }
