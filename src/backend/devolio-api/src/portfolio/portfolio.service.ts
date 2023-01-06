@@ -1,41 +1,51 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { identity } from 'rxjs';
+import { developerType } from './developer-type.enum';
 import { CreatePortfolioBodyDto } from './dto/create-portfolio.dto';
 import { UpdatePortfolioBodyDto } from './dto/update-portfolio.dto';
-import { Portfolio } from './portfolio.entity';
+import { Portfolio } from './portfolio.interface';
 
 @Injectable()
 export class PortfolioService {
-  @InjectRepository(Portfolio)
-  private portfolioRepository: Repository<Portfolio>;
+  potfolioUno: Portfolio = {
+    id: 1,
+    developerName: 'Mariusz',
+    bio: 'jakie bio?',
+    developerType: developerType.BACKEND,
+    workExperiences: ['raz', ' dwa', ' trzy'],
+    knownTechnologies: ['java', ' python'],
+  };
+  potfolioDuo: Portfolio = {
+    id: 2,
+    developerName: 'Miroslaw',
+    bio: 'łymen',
+    developerType: developerType.FULLSTACK,
+    workExperiences: ['raz', ' dwa', ' trzy'],
+    knownTechnologies: ['javascript', ' html'],
+  };
+  portfolios = [this.potfolioUno, this.potfolioDuo];
 
-  findAll(): Promise<Portfolio[]> {
-    return this.portfolioRepository.find();
+  findAll() {
+    return this.portfolios;
   }
 
-  public findById(id: number): Promise<Portfolio> {
-    return this.portfolioRepository.findOne({ where: { id } });
+  findById(portfolioId: number) {
+    return this.portfolios.find((id) => id.id === portfolioId);
   }
 
   createPortfolio(createPortfolio: CreatePortfolioBodyDto) {
     const newPortfolio = this.portfolioDtoToPortfolio(createPortfolio);
-    this.portfolioRepository.save(newPortfolio);
+    this.portfolios.push(newPortfolio);
     return newPortfolio;
   }
 
-  deletePortfolio(portfolioId: number) {
-    this.portfolioRepository.delete(portfolioId);
-  }
+  deletePortfolio(portfolioId: number) {}
 
   updatePortfolio(portfolioId: number, body: UpdatePortfolioBodyDto) {
-    return this.portfolioRepository.update(
-      portfolioId,
-      this.portfolioDtoToPortfolio(body),
-    );
+    return this.portfolios.find((id) => id.id === portfolioId);
   }
 
-  portfolioDtoToPortfolio(createPortfolio: UpdatePortfolioBodyDto): Portfolio {
+  portfolioDtoToPortfolio(createPortfolio: CreatePortfolioBodyDto): Portfolio {
     const newPortfolio: Portfolio = {
       developerName: createPortfolio.developerName,
       bio: createPortfolio.bio,
