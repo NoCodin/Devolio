@@ -17,12 +17,12 @@ export class PortfolioController {
   constructor(private portfiolioService: PortfolioService) {}
 
   @Get()
-  getAllPortfolios(): Promise<Portfolio[]> {
+  getAllPortfolios(): Portfolio[] {
     return this.portfiolioService.findAll();
   }
 
   @Get(':id')
-  findOneById(@Param('id') id: number) {
+  findOneById(@Param('id') id: string) {
     return this.portfiolioService.findById(Number(id));
   }
 
