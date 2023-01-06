@@ -7,7 +7,7 @@ export class UpdatePortfolioBodyDto {
   // readonly developerType: developerType;
   // readonly workExperiences: string[];
   // readonly knownTechnologies: string[];
-  @IsNotEmpty()
+  // @IsNotEmpty()
   developerName: string;
   @IsNotEmpty()
   bio: string;
