@@ -25,7 +25,7 @@ export class PortfolioService {
   }
 
   updatePortfolio(id: number, portfolio: Portfolio): Observable<Portfolio> {
-    const url = `${this.apiUrl}/${portfolio.id}`;
+    const url = `${this.apiUrl}/${id}`;
     return this.http.put<Portfolio>(url, portfolio);
   }
 
