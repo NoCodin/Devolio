@@ -41,6 +41,6 @@ export class PortfolioController {
     @Body() updatePortfolio: UpdatePortfolioBodyDto,
     @Param('id') id: number,
   ) {
-    return this.portfiolioService.updatePortfolio(id, updatePortfolio);
+    return this.portfiolioService.updatePortfolio(Number(id), updatePortfolio);
   }
 }
