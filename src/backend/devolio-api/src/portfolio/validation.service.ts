@@ -4,7 +4,7 @@ import { Portfolio } from './portfolio.entity';
 
 @Injectable()
 export class ValidationService {
-  portfolioIsValid(portfolio: UpdatePortfolioBodyDto): boolean {
+  portfolioIsValid(portfolio: Portfolio): boolean {
     const validator = require('validator');
     return (
       validator.isLength(portfolio.developerName, { min: 3, max: 40 }) &&
