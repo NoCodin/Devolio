@@ -1,5 +1,3 @@
-import { Injectable } from '@nestjs/common';
-import { min, Validator } from 'class-validator';
 import { Portfolio } from './portfolio.entity';
 
 export class ValidationService {
