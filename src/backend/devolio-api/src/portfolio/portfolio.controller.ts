@@ -7,14 +7,19 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { runInThisContext } from 'vm';
 import { CreatePortfolioBodyDto } from './dto/create-portfolio.dto';
 import { UpdatePortfolioBodyDto } from './dto/update-portfolio.dto';
 import { Portfolio } from './portfolio.interface';
 import { PortfolioService } from './portfolio.service';
+import { ValidationService } from './validation.service';
 
 @Controller('portfolio')
 export class PortfolioController {
-  constructor(private portfiolioService: PortfolioService) {}
+  constructor(
+    private portfiolioService: PortfolioService,
+    private validationService: ValidationService,
+  ) {}
 
   @Get()
   getAllPortfolios(): Promise<Portfolio[]> {
@@ -41,6 +46,10 @@ export class PortfolioController {
     @Body() updatePortfolio: UpdatePortfolioBodyDto,
     @Param('id') id: number,
   ) {
-    return this.portfiolioService.updatePortfolio(Number(id), updatePortfolio);
+    if (this.validationService.portfolioIsValid(updatePortfolio))
+      return this.portfiolioService.updatePortfolio(
+        Number(id),
+        updatePortfolio,
+      );
   }
 }
