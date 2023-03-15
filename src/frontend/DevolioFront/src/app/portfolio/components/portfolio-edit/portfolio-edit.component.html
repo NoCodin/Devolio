@@ -18,7 +18,7 @@
 
     <mat-form-field>
       <mat-label>Typ</mat-label>
-      <select
+      <mat-select
         matNativeControl
         required
         formControlName="developerType"
@@ -26,10 +26,10 @@
         class="form-control"
         [ngClass]="{ 'is-invalid': submitted }"
       >
-        <option value="fullstack">fullstack</option>
-        <option value="backend">backend</option>
-        <option value="frontend">frontend</option>
-      </select>
+        <mat-option value="fullstack">fullstack</mat-option>
+        <mat-option value="backend">backend</mat-option>
+        <mat-option value="frontend">frontend</mat-option>
+      </mat-select>
       <mat-error *ngIf="selectFormControl.hasError('required')">
         This field is required
       </mat-error>

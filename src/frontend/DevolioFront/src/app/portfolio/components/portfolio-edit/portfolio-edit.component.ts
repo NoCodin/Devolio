@@ -50,9 +50,6 @@ export class PortfolioEditComponent implements OnInit {
         .subscribe((x) => this.form.patchValue(x));
     }
   }
-  get f() {
-    return this.form.controls;
-  }
 
   onSubmit() {
     this.submitted = true;
