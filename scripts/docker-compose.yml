@@ -15,10 +15,10 @@ services:
       - DbConnectionString=postgres://postgres:postgres@localhost:5432/devolio
   devolio-frontend:
     container_name: DevolioFrontend
-    build: 
+    build:
       context: ../src/frontend/DevolioFront
       dockerfile: Dockerfile
-    ports: 
+    ports:
       - 8010:80
     networks:
       - net
@@ -29,13 +29,13 @@ services:
     container_name: DevolioDb
     restart: always
     environment:
-      - POSTGRES_USER=postgr
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
       - 5432:5432
     networks:
       - net
-    volumes: 
+    volumes:
       - db:/var/lib/postgresql/data
 volumes:
   db:
