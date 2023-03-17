@@ -8,7 +8,7 @@ import { Portfolio } from '../models/create-portfolio.dto';
 })
 export class PortfolioService {
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:3000/portfolio';
+  private apiUrl = 'http://localhost:8000/portfolio';
 
   getPortfolios(): Observable<Portfolio[]> {
     return this.http.get<Portfolio[]>(`${this.apiUrl}`);
