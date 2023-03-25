@@ -12,7 +12,7 @@ services:
     depends_on:
       - db
     environment:
-      - DbConnectionString=postgres://postgres:postgres@db:5432/devolio
+      - DB_URL=postgres://postgres:postgres@localhost:5432/devolio
   devolio-frontend:
     container_name: DevolioFrontend
     build:
