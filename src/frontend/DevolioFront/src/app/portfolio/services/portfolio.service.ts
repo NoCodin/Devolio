@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Portfolio } from '../models/create-portfolio.dto';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Portfolio } from '../models/create-portfolio.dto';
 })
 export class PortfolioService {
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:3000/portfolio';
+  private apiUrl = environment.apiUrl;
 
   getPortfolios(): Observable<Portfolio[]> {
     return this.http.get<Portfolio[]>(`${this.apiUrl}`);

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://devolioapi.fly.dev/portfolio',
+  // apiUrl: 'http://localhost:8000/portfolio',
 };
 
 /*
