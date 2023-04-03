@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://devolioapi.fly.dev/portfolio',
-  // apiUrl: 'http://localhost:8000/portfolio',
+  // apiUrl: 'https://devolioapi.fly.dev/portfolio',
+  apiUrl: 'http://localhost:8000/portfolio',
 };
 
 /*
