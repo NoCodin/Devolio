@@ -51,7 +51,10 @@ In terminal - command
 ```
 $ docker compose up
 ```
-
+App is running locally on
+```
+http://localhost:8010/
+```
 ## Routes
 ```
 portfolio/
