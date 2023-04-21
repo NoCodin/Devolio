@@ -39,7 +39,8 @@ A online developers portfolio managment.
 
 ### **2. Make sure Docker is running.**
 
-#  navigate to Devolio/scripts 
+### **3. navigate to Devolio/script.**
+
 In terminal - command
 ```
 $ cd scripts
