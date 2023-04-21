@@ -28,15 +28,22 @@ A online developers portfolio managment.
 - [Docker](https://www.docker.com/)
 
 
+### **Requirements to run**
+- [Docker](https://www.docker.com/)
+- [Terminal]
+- 
 # **SETUP**
 
 ### **1. Clone github repository.**
 
-### **2. Make sure run Docker. **
+### **2. Make sure Docker is running.**
 
 #  navigate to Devolio/scripts 
+In terminal - command
+...
 $ cd scripts
 $ docker compose up
+...
 
 ## Routes
 ```
