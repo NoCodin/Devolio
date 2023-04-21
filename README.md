@@ -39,11 +39,16 @@ A online developers portfolio managment.
 
 ### **2. Make sure Docker is running.**
 
-### **3. navigate to Devolio/script.**
+### **3. Navigate to Devolio/scripts.**
 
 In terminal - command
 ```
 $ cd scripts
+```
+### **4. Run docker compose.**
+
+In terminal - command
+```
 $ docker compose up
 ```
 
