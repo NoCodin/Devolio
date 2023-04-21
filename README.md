@@ -30,9 +30,9 @@ A online developers portfolio managment.
 
 # **SETUP**
 
-### **1 Clone github repository.**
+### **1. Clone github repository.**
 
-### **2. Make sure run Docker **
+### **2. Make sure run Docker. **
 
 #  navigate to Devolio/scripts 
 $ cd scripts
