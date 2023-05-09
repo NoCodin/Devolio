@@ -4,17 +4,19 @@ import { AuthService } from './auth.service';
 import { GoogleStrategy } from './utils/GoogleStrategy';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/users/enitites/User';
+import { SessionSerializer } from './utils/Serializer';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [AuthController],
-  providers: [AuthService, GoogleStrategy],
-  // providers: [
-  //   GoogleStrategy,
-  //   {
-  //     provide: 'AUTH_SERVICE',
-  //     useClass: AuthService,
-  //   },
-  // ],
+  // providers: [AuthService, GoogleStrategy],
+  providers: [
+    GoogleStrategy,
+    SessionSerializer,
+    {
+      provide: 'AUTH_SERVICE',
+      useClass: AuthService,
+    },
+  ],
 })
 export class AuthModule {}
