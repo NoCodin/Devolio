@@ -24,7 +24,7 @@ async function bootstrap() {
 
   app.use(
     session({
-      secret: 'asdsadsadasdassadsadad',
+      secret: config.get<string>('SESSION_SECRET'),
       saveUninitialized: false,
       resave: false,
       cookie: {
