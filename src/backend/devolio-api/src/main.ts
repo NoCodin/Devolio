@@ -4,7 +4,8 @@ import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-
+import * as session from 'express-session';
+import * as passport from 'passport';
 async function bootstrap() {
   const app: NestExpressApplication = await NestFactory.create(AppModule);
   app.enableCors();
@@ -21,6 +22,18 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
 
+  app.use(
+    session({
+      secret: config.get<string>('SESSION_SECRET'),
+      saveUninitialized: false,
+      resave: false,
+      cookie: {
+        maxAge: 120000,
+      },
+    }),
+  );
+  app.use(passport.initialize());
+  app.use(passport.session());
   await app.listen(port);
 }
 bootstrap();

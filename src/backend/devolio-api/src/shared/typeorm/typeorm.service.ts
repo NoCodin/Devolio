@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { Portfolio } from 'src/portfolio/portfolio.entity';
+import { User } from 'src/users/enitites/User';
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
@@ -25,11 +27,12 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       ...partialOptions,
       type: 'postgres',
 
-      entities: ['dist/**/*.entity.{ts,js}'],
+      // entities: ['dist/**/*.entity.{ts,js}'],
+      entities: [Portfolio, User],
       migrations: ['dist/migrations/*.{ts,js}'],
       migrationsTableName: 'typeorm_migrations',
       logger: 'file',
-      synchronize: true, // never use TRUE in production!
+      synchronize: false, // never use TRUE in production!
     };
   }
 }
